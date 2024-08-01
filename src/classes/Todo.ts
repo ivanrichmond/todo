@@ -2,7 +2,7 @@
 
 // Here I break types down for each property.
 export type Task = string
-export type DueDate = Date
+export type DueDate = string
 export type Status = 'incomplete' | 'complete'
 
 // Complete type for exernal use.
@@ -15,10 +15,10 @@ export type TodoType = {
 
 
 export default class Todo {
-    task: string
-    dueDate: Date
-    status: 'incomplete' | 'complete'
-    constructor(task: string, dueDate: Date){
+    task: Task
+    dueDate: DueDate
+    status: Status
+    constructor(task: Task, dueDate: DueDate){
         this.task = task
         this.dueDate = dueDate
         this.status = 'incomplete'
