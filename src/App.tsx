@@ -1,6 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { TodoProvider } from './contexts/TodoProvider'
-import './App.css';
+import './App.css'
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   return (
