@@ -1,6 +1,6 @@
-import { Button } from 'semantic-ui-react'
+import { Button, ButtonProps } from 'semantic-ui-react'
 
-export default function AppButton(props){
+export default function AppButton(props: ButtonProps){
     return (
         <Button {...props} />
     )

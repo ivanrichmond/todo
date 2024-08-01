@@ -1,6 +1,6 @@
-import { Checkbox } from 'semantic-ui-react'
+import { Checkbox, CheckboxProps } from 'semantic-ui-react'
 
-export default function AppCheckbox(props){
+export default function AppCheckbox(props: CheckboxProps){
     return (
         <Checkbox {...props} />
     )

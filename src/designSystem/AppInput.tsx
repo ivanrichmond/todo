@@ -1,6 +1,6 @@
-import { Input } from 'semantic-ui-react'
+import { Input, InputProps } from 'semantic-ui-react'
 
-export default function AppInput(props){
+export default function AppInput(props: InputProps){
     return (
         <Input {...props} />
     )

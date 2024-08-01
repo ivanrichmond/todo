@@ -1,20 +1,32 @@
-import { Form } from 'semantic-ui-react'
+import { 
+    ButtonProps, 
+    CheckboxProps, 
+    DropdownProps,
+    Form, 
+    FormFieldProps,
+    FormGroupProps,
+    FormProps,
+    InputProps,
+    RadioProps,
+    SelectProps,
+    TextAreaProps
+} from 'semantic-ui-react'
 
-const AppForm = (props) => {
+const AppForm = (props: FormProps) => {
     return (
         <Form {...props} />
     )
 }
 
-AppForm.Button = (props) => (<Form.Button {...props} />)
-AppForm.Checkbox = (props) => (<Form.Checkbox {...props} />)
-AppForm.Dropdown = (props) => (<Form.Dropdown {...props} />)
-AppForm.Field = (props) => (<Form.Field {...props} />)
-AppForm.Group = (props) => (<Form.Group {...props} />)
-AppForm.Input = (props) => (<Form.Input {...props} />)
-AppForm.Radio = (props) => (<Form.Radio {...props} />)
-AppForm.Select = (props) => (<Form.Select {...props} />)
-AppForm.TextArea = (props) => (<Form.TextArea {...props} />)
+AppForm.Button = (props: ButtonProps) => (<Form.Button {...props} />)
+AppForm.Checkbox = (props: CheckboxProps) => (<Form.Checkbox {...props} />)
+AppForm.Dropdown = (props: DropdownProps) => (<Form.Dropdown {...props} />)
+AppForm.Field = (props: FormFieldProps) => (<Form.Field {...props} />)
+AppForm.Group = (props: FormGroupProps) => (<Form.Group {...props} />)
+AppForm.Input = (props: InputProps) => (<Form.Input {...props} />)
+AppForm.Radio = (props: RadioProps) => (<Form.Radio {...props} />)
+AppForm.Select = (props: SelectProps) => (<Form.Select {...props} />)
+AppForm.TextArea = (props: TextAreaProps) => (<Form.TextArea {...props} />)
 
 
 export default AppForm

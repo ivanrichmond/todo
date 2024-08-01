@@ -1,14 +1,23 @@
-import { Table } from 'semantic-ui-react'
+import { 
+    Table,
+    TableBodyProps,
+    TableCellProps,
+    TableFooterProps,
+    TableHeaderProps,
+    TableHeaderCellProps,
+    TableRowProps,
+    TableProps 
+} from 'semantic-ui-react'
 
-export default function AppTable(props){
+export default function AppTable(props: TableProps){
     return (
         <Table {...props} />
     )
 }
 
-AppTable.Body = (props) => (<Table.Body {...props} />)
-AppTable.Cell = (props) => (<Table.Cell {...props} />)
-AppTable.Footer = (props) => (<Table.Footer {...props} />)
-AppTable.Header = (props) => (<Table.Header {...props} />)
-AppTable.HeaderCell = (props) => (<Table.HeaderCell {...props} />)
-AppTable.Row = (props) => (<Table.Row {...props} />)
+AppTable.Body = (props: TableBodyProps) => (<Table.Body {...props} />)
+AppTable.Cell = (props: TableCellProps) => (<Table.Cell {...props} />)
+AppTable.Footer = (props: TableFooterProps) => (<Table.Footer {...props} />)
+AppTable.Header = (props: TableHeaderProps) => (<Table.Header {...props} />)
+AppTable.HeaderCell = (props: TableHeaderCellProps) => (<Table.HeaderCell {...props} />)
+AppTable.Row = (props: TableRowProps) => (<Table.Row {...props} />)
