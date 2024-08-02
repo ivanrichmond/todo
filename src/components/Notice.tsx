@@ -7,7 +7,6 @@ const Notice = () => {
     //TODO: Fix this typescript error.
     // @ts-expect-error
     const { notice, deleteNotice } = useContext(NoticeContext)
-    console.debug('notice', notice)
     return notice?.message ? (
         <AppMessage
         info = {notice.type === 'info'}
