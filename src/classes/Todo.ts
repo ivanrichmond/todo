@@ -15,7 +15,6 @@ export type TodoType = {
     unComplete?: () => void;
 }
 
-
 export default class Todo {
     task: Task
     dueDate: DueDate
