@@ -12,7 +12,6 @@ const AddToDo = () => {
 
     // contexts
     //TODO: Fix this typescript error.
-    // @ts-expect-error
     const { createNotice } = useContext(NoticeContext)
     const { addTodo } = useContext(TodoContext)
 
