@@ -1,11 +1,13 @@
 import React from 'react'
 
 import AddTodo from './AddTodo'
+import Search from './Search'
 import TodoList from './TodoList'
 
 const Todos = () => {
     return (
         <div className='Todos'>
+            <Search />
             <AddTodo />
             <TodoList />
         </div>
