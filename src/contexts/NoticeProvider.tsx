@@ -11,16 +11,20 @@ type NoticeProviderProps = {
 }
 
 export const NoticeProvider = ({ children }: NoticeProviderProps) => {
+    const defaultNotice = {message: '', type: '', sendToConsole: () => {}}
+    //TODO: EIther use defaultNotice or get rid of it.
     const [notice, setNotice] = useState<NoticeType | null>(null)
 
     const createNotice = (message: Message, type: TypeOfNotice = 'info') => {
         const newNotice: NoticeType = new Notice(message, type)
+        //TODO: Fix this typescript error.
+        // @ts-expect-error
         newNotice.sendToConsole()
         setNotice(newNotice)
     }
 
     const deleteNotice = () => {
-        setNotice(null)
+        setNotice(defaultNotice)
     }
 
     const value = {notice, createNotice, deleteNotice}

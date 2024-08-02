@@ -10,7 +10,7 @@ export type TypeOfNotice = string // I can't just use "Type" here, or it would b
 // Complete type for exernal use.
 export type NoticeType = {
     message: Message;
-    sendToConsole: () => void;
+    sendToConsole?: () => void;
     type: TypeOfNotice;
 }
 export default class Notice {
