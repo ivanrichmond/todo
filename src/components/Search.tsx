@@ -3,8 +3,10 @@ import React, { useContext, useState } from 'react'
 import AppForm from '../designSystem/AppForm'
 import { TodoContext } from '../contexts/TodoProvider'
 
+//TODO: Change it so that selection automatically filters; eliminate Search button.
+
 const Search = () => {
-    const { filter } = useContext(TodoContext)
+    const { setFilterStatus } = useContext(TodoContext)
     const [status, setStatus] = useState('all')
     // TODO: use options and see if I can get AppForm.Select to work.
     // AppForm.Select isn't working.  For some reason it complains that event.target.value is null.
@@ -32,7 +34,7 @@ const Search = () => {
                     <option value='complete'>complete</option>
                     <option value='incomplete'>incomplete</option>
                 </select>
-                <AppForm.Button icon='search' onClick = {() => filter(status)}/>
+                <AppForm.Button icon='search' onClick = {() => setFilterStatus(status)}/>
             </AppForm.Group>
         </AppForm>
     )

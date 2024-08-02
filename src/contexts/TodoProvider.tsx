@@ -22,6 +22,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
     let initialData = todosInitial.map(todo => new Todo(todo.task, todo.dueDate))
 
     const [todos, setTodos] = useState(initialData)
+    const [filterStatus, setFilterStatus] = useState('all')
     
     // In the following methods, todos must be changed statelessly by making a copy and setting that.
 
@@ -47,12 +48,6 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         setTodos(newTodos)
     }
 
-    // filter todos: currently only by status.
-    // TODO: Make this work for dueDate and task.
-    const filter = (status: Status) => {
-        return todos.filter(todo => todo.status === status)
-    }
-
-    const values = {todos, addTodo, deleteTodo, toggleComplete, filter}
+    const values = {todos, addTodo, deleteTodo, toggleComplete, filterStatus, setFilterStatus}
     return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };

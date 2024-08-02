@@ -7,13 +7,18 @@ import { TodoContext } from '../contexts/TodoProvider'
 import { TodoType } from '../classes/Todo'
 
 const ToDoList = () => {
-    const { todos, deleteTodo, toggleComplete } = useContext(TodoContext)
+    let { todos, deleteTodo, filterStatus, toggleComplete } = useContext(TodoContext)
+    if(filterStatus !== 'all'){
+        //TODO: Have something better than any for type of todo.
+        // @ts-expect-error
+        todos = todos.filter(todo => todo.status === filterStatus)
+    }
     let dataRows = todos.map((todo: TodoType, i:number) => {
         return (
             <AppTable.Row key={i}>
                 <AppTable.Cell collapsing className={todo.status}>
                     <AppCheckbox 
-                    defaultChecked = {todo.status === 'complete'}
+                    checked = {todo.status === 'complete'}
                     onChange = {() => toggleComplete(i)}
                     />
                 </AppTable.Cell>
