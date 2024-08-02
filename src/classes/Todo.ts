@@ -3,14 +3,16 @@
 // Here I break types down for each property.
 export type Task = string
 export type DueDate = string
-export type Status = 'incomplete' | 'complete'
+export type Status = string // 'incomplete' | 'complete'
 
 // Complete type for exernal use.
 export type TodoType = {
-    complete: () => void;
+    complete?: () => void;
     dueDate: DueDate;
     status: Status;
+    setStatus?: (status: Status) => void;
     task: Task;
+    unComplete?: () => void;
 }
 
 

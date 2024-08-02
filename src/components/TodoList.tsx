@@ -1,35 +1,47 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
+import AppButton from '../designSystem/AppButton'
 import AppCheckbox from '../designSystem/AppCheckbox'
 import AppTable from '../designSystem/AppTable'
+import { TodoContext } from '../contexts/TodoProvider'
+import { TodoType } from '../classes/Todo'
 
 const ToDoList = () => {
-    return(
+    const { todos, deleteTodo, toggleComplete } = useContext(TodoContext)
+    let dataRows = todos.map((todo: TodoType, i:number) => {
+        return (
+            <AppTable.Row key={i}>
+                <AppTable.Cell collapsing className={todo.status}>
+                    <AppCheckbox 
+                    defaultChecked = {todo.status === 'complete'}
+                    onChange = {() => toggleComplete(i)}
+                    />
+                </AppTable.Cell>
+                <AppTable.Cell className={todo.status}>{todo.task}</AppTable.Cell>
+                <AppTable.Cell className={todo.status}>{todo.dueDate}</AppTable.Cell>
+                <AppTable.Cell className={todo.status}>
+                    <AppButton icon='trash' onClick={() => deleteTodo(i)} />
+                </AppTable.Cell>
+            </AppTable.Row>
+        )
+    })
+
+    return dataRows.length ? (
         <AppTable celled striped>
             <AppTable.Header>
                 <AppTable.Row>
                     <AppTable.HeaderCell>Complete?</AppTable.HeaderCell>
                     <AppTable.HeaderCell>Task</AppTable.HeaderCell>
                     <AppTable.HeaderCell width={2}>Due Date</AppTable.HeaderCell>
+                    <AppTable.HeaderCell width={1}>Delete</AppTable.HeaderCell>
                 </AppTable.Row>
             </AppTable.Header>
             <AppTable.Body>
-                <AppTable.Row>
-                    <AppTable.Cell collapsing>
-                        <AppCheckbox />
-                    </AppTable.Cell>
-                    <AppTable.Cell>Lorem</AppTable.Cell>
-                    <AppTable.Cell>8/5/2024</AppTable.Cell>
-                </AppTable.Row>
-                <AppTable.Row positive>
-                    <AppTable.Cell collapsing>
-                        <AppCheckbox checked />
-                    </AppTable.Cell>
-                    <AppTable.Cell>Ipsum</AppTable.Cell>
-                    <AppTable.Cell>8/1/2024</AppTable.Cell>
-                </AppTable.Row>
+                {dataRows}
             </AppTable.Body>
         </AppTable>
+    ) : (
+        <p className='noneFound'>No tasks found.</p>
     )
 }
 
