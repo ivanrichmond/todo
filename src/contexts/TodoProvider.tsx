@@ -19,7 +19,7 @@ type TodoProviderProps = {
 }
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
-    let initialData = todosInitial.map(todo => new Todo(todo.task, todo.dueDate))
+    let initialData = todosInitial.map(todo => new Todo(todo.task, todo.dueDate, todo.status))
 
     const [todos, setTodos] = useState(initialData)
     const [filterStatus, setFilterStatus] = useState('all')

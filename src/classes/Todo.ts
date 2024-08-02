@@ -19,10 +19,10 @@ export default class Todo {
     task: Task
     dueDate: DueDate
     status: Status
-    constructor(task: Task, dueDate: DueDate){
+    constructor(task: Task, dueDate: DueDate, status?: Status){
         this.task = task
         this.dueDate = dueDate
-        this.status = 'incomplete'
+        this.status = status || 'incomplete'
     }
 
     //-- status methods
