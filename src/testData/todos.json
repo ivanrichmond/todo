@@ -1,5 +1,15 @@
 [
     {
+        "task": "Get basic functionality done.",
+        "dueDate": "8/2/2024",
+        "status": "complete"
+    },
+    {
+        "task": "Polish up the CSS",
+        "dueDate": "8/5/2024",
+        "status": "incomplete"
+    },
+    {
         "task": "Add light/dark mode",
         "dueDate": "8/5/2024",
         "status": "incomplete"
