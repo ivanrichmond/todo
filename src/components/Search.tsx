@@ -12,15 +12,19 @@ const Search = () => {
         {value: 'incomplete', text: 'incomplete'},
     ]
     return(
-        <AppForm >
-            <AppForm.Group inline >
-                <AppSelect 
-                label = 'status' 
-                filter = {setFilterStatus} 
-                options = {options}
-                />
-            </AppForm.Group>
-        </AppForm>
+        <fieldset className='Search'>
+            <legend>Filter by...</legend>
+            <AppForm >  
+                <AppForm.Group inline >
+                    <AppSelect 
+                    className = 'status'
+                    label = 'Status' 
+                    filter = {setFilterStatus} 
+                    options = {options}
+                    />
+                </AppForm.Group>
+            </AppForm>
+        </fieldset>
     )
 }
 

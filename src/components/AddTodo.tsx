@@ -35,7 +35,7 @@ const AddToDo = () => {
     }
 
     return(
-        <AppForm >
+        <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
                 <AppForm.Input 
                 label='New Task' 
@@ -48,7 +48,7 @@ const AddToDo = () => {
                 type='date' 
                 onChange = {(event) => setDueDate(event.target.value)}
                 />
-                <AppForm.Button icon='plus' onClick = {() => handleAdd(task, dueDate)}/>
+                <AppForm.Button color='blue' icon='plus' onClick = {() => handleAdd(task, dueDate)}/>
             </AppForm.Group>
         </AppForm>
     )

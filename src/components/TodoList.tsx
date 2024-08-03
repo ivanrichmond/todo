@@ -25,26 +25,28 @@ const ToDoList = () => {
                 <AppTable.Cell className={todo.status}>{todo.task}</AppTable.Cell>
                 <AppTable.Cell className={todo.status}>{todo.dueDate}</AppTable.Cell>
                 <AppTable.Cell className={todo.status}>
-                    <AppButton icon='trash' onClick={() => deleteTodo(i)} />
+                    <AppButton color='red' icon='trash' onClick={() => deleteTodo(i)} />
                 </AppTable.Cell>
             </AppTable.Row>
         )
     })
 
     return dataRows.length ? (
-        <AppTable celled striped>
-            <AppTable.Header>
-                <AppTable.Row>
-                    <AppTable.HeaderCell>Complete?</AppTable.HeaderCell>
-                    <AppTable.HeaderCell>Task</AppTable.HeaderCell>
-                    <AppTable.HeaderCell width={2}>Due Date</AppTable.HeaderCell>
-                    <AppTable.HeaderCell width={1}>Delete</AppTable.HeaderCell>
-                </AppTable.Row>
-            </AppTable.Header>
-            <AppTable.Body>
-                {dataRows}
-            </AppTable.Body>
-        </AppTable>
+        <div className="TodoList">
+            <AppTable celled striped>
+                <AppTable.Header>
+                    <AppTable.Row>
+                        <AppTable.HeaderCell>Complete?</AppTable.HeaderCell>
+                        <AppTable.HeaderCell>Task</AppTable.HeaderCell>
+                        <AppTable.HeaderCell width={2}>Due Date</AppTable.HeaderCell>
+                        <AppTable.HeaderCell width={1}>Delete</AppTable.HeaderCell>
+                    </AppTable.Row>
+                </AppTable.Header>
+                <AppTable.Body>
+                    {dataRows}
+                </AppTable.Body>
+            </AppTable>
+        </div>
     ) : (
         <p className='noneFound'>No tasks found.</p>
     )
