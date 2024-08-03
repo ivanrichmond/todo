@@ -9,9 +9,12 @@ export type AppDateProps = {
     value?: string;
 }
 
+/**
+ * A custom date picker that puts things in MM/DD/YYYY format.
+ */
 const AppDate = ({label, onChange, value, tooltip}: AppDateProps) => { 
+    // Convert DueDate to MM/DD/YYYY
     const handleChange = (value: string) => {
-        // Convert DueDate to MM/DD/YYYY
         let formattedDueDate = value
         let matches = value.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
         if(matches){
