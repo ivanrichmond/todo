@@ -3,6 +3,7 @@ import AppForm from './AppForm'
 import AppTooltip from './AppTooltip'
 
 export type AppDateProps = {
+    dataTestid?: string; // Useful for unit testing.
     label?: string;
     onChange: (value: string) => void;
     tooltip?: string;
@@ -12,7 +13,7 @@ export type AppDateProps = {
 /**
  * A custom date picker that puts things in MM/DD/YYYY format.
  */
-const AppDate = ({label, onChange, value, tooltip}: AppDateProps) => { 
+const AppDate = ({label, onChange, value, tooltip, dataTestid}: AppDateProps) => { 
     // Convert DueDate to MM/DD/YYYY
     const handleChange = (value: string) => {
         let formattedDueDate = value
