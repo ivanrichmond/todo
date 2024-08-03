@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import AppForm from '../designSystem/AppForm'
+import AppTooltip from '../designSystem/AppTooltip'
 import { NoticeContext } from '../contexts/NoticeProvider'
 import { TodoContext } from '../contexts/TodoProvider'
 import { Task, DueDate } from '../classes/Todo'
@@ -19,7 +20,7 @@ const AddToDo = () => {
         // Add, or error out.
         if(!task){
             // Error.
-            createNotice("You did not fill-in the task. ", 'error')
+            createNotice("You did not fill in the task. ", 'error')
         } else if(!dueDate){
             // Error
             createNotice("You did set a due date. ", 'error')
@@ -37,18 +38,43 @@ const AddToDo = () => {
     return(
         <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
-                <AppForm.Input 
-                label='New Task' 
-                placeholder='New Task' 
-                onChange = {(event) => setTask(event.target.value)}
+                <AppTooltip
+                content = "Enter a new task."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <AppForm.Input 
+                    label='New Task' 
+                    placeholder='New Task' 
+                    onChange = {(event) => setTask(event.target.value)}
+                    />
+                }
                 />
-                <AppForm.Input 
-                label='Due Date' 
-                placeholder='Due Date' 
-                type='date' 
-                onChange = {(event) => setDueDate(event.target.value)}
+                <AppTooltip
+                content = "Enter the due date for the task."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <AppForm.Input 
+                    label='Due Date' 
+                    placeholder='Due Date' 
+                    type='date' 
+                    onChange = {(event) => setDueDate(event.target.value)}
+                    />
+                }
                 />
-                <AppForm.Button color='blue' icon='plus' onClick = {() => handleAdd(task, dueDate)}/>
+                <AppTooltip
+                content = "Add task."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <AppForm.Button 
+                    color='blue' 
+                    icon='plus' 
+                    onClick = {() => handleAdd(task, dueDate)}
+                    />
+                }
+                />
             </AppForm.Group>
         </AppForm>
     )
