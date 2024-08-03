@@ -1,3 +1,11 @@
+.AddTodo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
 .App {
   padding: 1.5rem;
   text-align: center;
@@ -7,18 +15,34 @@
   font-size: 24pt;
   line-height: normal;
 }
+.Search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  width: 100%;
+}
+.Search legend {
+  color: #9b9b9e;
+  font-weight: bold;
+}
+.TodoList {
+  margin-top: 0;
+  width: 100%;
+}
+.TodoList .complete {
+  color: #2c662d;
+}
+.TodoList .noneFound {
+  font-size: 16pt;
+  font-weight: bold;
+}
 .Todos {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-}
-.complete {
-  color: #2c662d;
-}
-.noneFound {
-  font-size: 16pt;
-  font-weight: bold;
 }
 /*# sourceMappingURL=App.css.map */
