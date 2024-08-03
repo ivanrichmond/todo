@@ -24,7 +24,7 @@ const AddToDo = () => {
             createNotice("You did not fill in the task. ", 'error')
         } else if(!dueDate){
             // Error
-            createNotice("You did set a due date. ", 'error')
+            createNotice("You did not set a due date. ", 'error')
         } else {
             addTodo(task, dueDate)
             // clear after adding
