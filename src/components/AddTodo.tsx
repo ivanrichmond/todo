@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 
+import AppDate from '../designSystem/AppDate'
 import AppForm from '../designSystem/AppForm'
 import AppTooltip from '../designSystem/AppTooltip'
 import { NoticeContext } from '../contexts/NoticeProvider'
@@ -25,43 +26,34 @@ const AddToDo = () => {
             // Error
             createNotice("You did set a due date. ", 'error')
         } else {
-            // Convert DueDate to MM/DD/YYYY
-            let formattedDueDate = dueDate
-            let matches = dueDate.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
-            if(matches){
-                formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
-            }
-            addTodo(task, formattedDueDate)
+            addTodo(task, dueDate)
+            // clear after adding
+            setTask('')
+            setDueDate('')
         }
     }
 
     return(
         <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
+                <label htmlFor="New Task">New Task</label>
                 <AppTooltip
                 content = "Enter a new task."
                 inverted
                 position = 'bottom center'
                 trigger = {
                     <AppForm.Input 
-                    label='New Task' 
-                    placeholder='New Task' 
                     onChange = {(event) => setTask(event.target.value)}
+                    placeholder='New Task' 
+                    value = {task}
                     />
                 }
                 />
-                <AppTooltip
-                content = "Enter the due date for the task."
-                inverted
-                position = 'bottom center'
-                trigger = {
-                    <AppForm.Input 
-                    label='Due Date' 
-                    placeholder='Due Date' 
-                    type='date' 
-                    onChange = {(event) => setDueDate(event.target.value)}
-                    />
-                }
+                <AppDate 
+                label='Due Date' 
+                onChange = {setDueDate}
+                tooltip = {"Enter the due date for the task."}
+                value = {dueDate}
                 />
                 <AppTooltip
                 content = "Add task."
