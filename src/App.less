@@ -13,10 +13,15 @@
   padding: 1.5rem;
   text-align: center;
   .header {
+    border-bottom: 1px solid @app-header;
     color: @app-header;
     font-size: 24pt;
     line-height: normal;
   }
+}
+
+.Notice {
+  width: 100%;
 }
 
 .Search {
@@ -32,11 +37,20 @@
   }
 }
 
+.taskFilter {
+  display: flex;
+  flex-direction: column;
+}
+
 .TodoList {
   margin-top: 0;
   width: 100%;
   .complete {
       color: rgb(44, 102, 45);
+  }
+
+  .heading {
+    vertical-align: text-top;
   }
   
   .noneFound {

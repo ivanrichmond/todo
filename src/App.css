@@ -11,9 +11,13 @@
   text-align: center;
 }
 .App .header {
+  border-bottom: 1px solid #c00;
   color: #c00;
   font-size: 24pt;
   line-height: normal;
+}
+.Notice {
+  width: 100%;
 }
 .Search {
   display: flex;
@@ -27,12 +31,19 @@
   color: #9b9b9e;
   font-weight: bold;
 }
+.taskFilter {
+  display: flex;
+  flex-direction: column;
+}
 .TodoList {
   margin-top: 0;
   width: 100%;
 }
 .TodoList .complete {
   color: #2c662d;
+}
+.TodoList .heading {
+  vertical-align: text-top;
 }
 .TodoList .noneFound {
   font-size: 16pt;
