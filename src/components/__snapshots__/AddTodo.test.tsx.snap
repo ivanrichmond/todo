@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodo AddTodo initial render snapshot 1`] = `
+<form
+  className="ui form AddTodo"
+  onSubmit={[Function]}
+>
+  <div
+    className="inline fields"
+  >
+    <label
+      htmlFor="New Task"
+    >
+      New Task
+    </label>
+    <div
+      className="field"
+    >
+      <div
+        className="ui input"
+        dataTestid="new-task"
+      >
+        <input
+          aria-describedby={null}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          placeholder="New Task"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <label
+      htmlFor="Due Date"
+    >
+      Due Date
+    </label>
+    <div
+      className="field AppDate"
+    >
+      <div
+        className="ui input"
+      >
+        <input
+          aria-describedby={null}
+          defaultValue=""
+          name="Due Date"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          placeholder="Due Date"
+          type="date"
+        />
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <button
+        aria-describedby={null}
+        className="ui blue icon button"
+        dataTestid="add-button"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <i
+          aria-hidden="true"
+          className="plus icon"
+          onClick={[Function]}
+        />
+      </button>
+    </div>
+  </div>
+</form>
+`;
