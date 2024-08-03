@@ -7,6 +7,7 @@ const Notice = () => {
     const { notice, deleteNotice } = useContext(NoticeContext)
     return notice?.message ? (
         <AppMessage
+        className = 'Notice'
         info = {notice.type === 'info'}
         warning = {notice.type === 'warning'}
         negative = {notice.type === 'error'}
