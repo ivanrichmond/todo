@@ -16,6 +16,7 @@ const AddToDo = () => {
     const { addTodo } = useContext(TodoContext)
 
     const handleAdd = (task: Task, dueDate: DueDate) => {
+        // Add, or error out.
         if(!task){
             // Error.
             createNotice("You did not fill-in the task. ", 'error')
@@ -23,7 +24,13 @@ const AddToDo = () => {
             // Error
             createNotice("You did set a due date. ", 'error')
         } else {
-            addTodo(task, dueDate)
+            // Convert DueDate to MM/DD/YYYY
+            let formattedDueDate = dueDate
+            let matches = dueDate.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
+            if(matches){
+                formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
+            }
+            addTodo(task, formattedDueDate)
         }
     }
 
