@@ -57,7 +57,7 @@ const ToDoList = () => {
         )
     })
 
-    return dataRows.length ? (
+    return (
         <div className="TodoList">
             <AppTable celled striped compact>
                 <AppTable.Header>
@@ -77,12 +77,10 @@ const ToDoList = () => {
                     </AppTable.Row>
                 </AppTable.Header>
                 <AppTable.Body>
-                    {dataRows}
+                    {dataRows.length ? dataRows : <p className='noneFound'>No tasks found.</p>}
                 </AppTable.Body>
             </AppTable>
         </div>
-    ) : (
-        <p className='noneFound'>No tasks found.</p>
     )
 }
 
