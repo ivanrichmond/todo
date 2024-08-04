@@ -22,7 +22,7 @@
     {
         "task": "Add advanced filtering.",
         "dueDate": "08/05/2024",
-        "status": "incomplete"
+        "status": "complete"
     },
     {
         "task": "Document in Storybook.",
