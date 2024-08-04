@@ -11,12 +11,18 @@ import { TodoContext } from '../contexts/TodoProvider'
 import { TodoType } from '../classes/Todo'
 
 const ToDoList = () => {
-    let { todos, deleteTodo, filterStatus, toggleComplete } = useContext(TodoContext)
+    let { todos, deleteTodo, filterStatus, filterTask, toggleComplete } = useContext(TodoContext)
     if(filterStatus !== 'all'){
         //TODO: Have something better than any for type of todo.
         // @ts-expect-error
         todos = todos.filter(todo => todo.status === filterStatus)
     }
+    if(filterTask !== ''){
+        //TODO: Have something better than any for type of todo.
+        // @ts-expect-error
+        todos = todos.filter(todo => todo.task.includes(filterTask))
+    }
+    
     let dataRows = todos.map((todo: TodoType, i:number) => {
         return (
             <AppTable.Row key={i}>
