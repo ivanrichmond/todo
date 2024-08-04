@@ -3,17 +3,16 @@ import AppForm from './AppForm'
 import AppTooltip from './AppTooltip'
 
 export type AppDateProps = {
-    dataTestid?: string; // Useful for unit testing.
     label?: string;
     onChange: (value: string) => void;
     tooltip?: string;
-    value?: string;
+    tooltipPosition?: "right center" | "top left" | "top right" | "bottom right" | "bottom left" | "left center" | "top center" | "bottom center"
 }
 
 /**
  * A custom date picker that puts things in MM/DD/YYYY format.
  */
-const AppDate = ({label, onChange, value, tooltip, dataTestid}: AppDateProps) => { 
+const AppDate = ({label, onChange, tooltip, tooltipPosition}: AppDateProps) => { 
     // Convert DueDate to MM/DD/YYYY
     const handleChange = (value: string) => {
         let formattedDueDate = value
@@ -30,11 +29,10 @@ const AppDate = ({label, onChange, value, tooltip, dataTestid}: AppDateProps) =>
             content = {tooltip || ''}
             disabled = {!tooltip}
             inverted
-            position = 'bottom center'
+            position = {tooltipPosition || 'bottom center'}
             trigger = {
                 <AppForm.Input 
                 className = {'AppDate'}
-                defaultValue = {value}
                 name = {label}
                 onChange = {(event) => handleChange(event.target.value)}
                 placeholder={label} 

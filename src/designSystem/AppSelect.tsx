@@ -4,9 +4,17 @@ export type AppSelectProps = {
     label?: string, 
     filter?: (value: string) => {}, 
     options: { value: string; text: string; }[],
-    tooltip?: string
+    tooltip?: string,
+    tooltipPosition?: "right center" | "top left" | "top right" | "bottom right" | "bottom left" | "left center" | "top center" | "bottom center"
 }
-export default function AppSelect({className, label, filter, options, tooltip}: AppSelectProps){
+export default function AppSelect({
+        className, 
+        label, 
+        filter, 
+        options, 
+        tooltip, 
+        tooltipPosition,
+    }: AppSelectProps){
     const optionData = options.map((option,i) => {
         return <option key={i} value={option.value}>{option.text}</option>
     })
@@ -18,13 +26,13 @@ export default function AppSelect({className, label, filter, options, tooltip}: 
     }
     
     return (
-        <div className = {'ui form field'}>
+        <div className = {'ui form field'} >
             <label htmlFor='status'>{label}</label>
             <AppTooltip
             content = {tooltip || ''}
             disabled = {!tooltip}
             inverted
-            position = 'bottom right'
+            position = {tooltipPosition || 'bottom center'}
             trigger = {
                 <select
                 // Format like Semantic UI for consistency with SUI Form.
