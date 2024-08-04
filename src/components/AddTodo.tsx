@@ -70,19 +70,31 @@ const AddToDo = () => {
                     />
                 }
                 />
-                <label htmlFor="dueDate" className='label'>Due Date</label>
-                <input 
+
+                {/* <label htmlFor="dueDate" className='label'>Due Date</label>
+                <AppTooltip
+                content = "Enter a due date."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <input 
+                    className = 'dueDate'
+                    name = 'dueDate'
+                    onChange = {(event) => setDueDate(event.target.value)}
+                    type="date" 
+                    value = {dueDate}
+                    />
+                }/> */}
+
+                <AppDate 
                 className = 'dueDate'
-                name = 'dueDate'
-                onChange = {(event) => setDueDate(event.target.value)}
-                type="date" 
-                value = {dueDate}
-                />
-                {/* <AppDate 
                 label='Due Date' 
+                labelClass = 'label'
                 onChange = {setDueDate}
                 tooltip = {"Enter the due date for the task."}
-                /> */}
+                value = {dueDate}
+                />
+
                 <AppTooltip
                 content = "Add task."
                 inverted
