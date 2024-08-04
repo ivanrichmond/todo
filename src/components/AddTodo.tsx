@@ -65,11 +65,9 @@ const AddToDo = () => {
                 }
                 />
                 <AppDate 
-                dataTestid = 'due-date'
                 label='Due Date' 
                 onChange = {setDueDate}
                 tooltip = {"Enter the due date for the task."}
-                value = {dueDate}
                 />
                 <AppTooltip
                 content = "Add task."
