@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import AppSelect from '../designSystem/AppSelect'
 import { TodoContext } from '../contexts/TodoProvider'
 
-const Search = () => {
+const StatusFilter = () => {
     const { setFilterStatus } = useContext(TodoContext)
     const options = [
         {value: 'all', text: 'all'},
@@ -22,4 +22,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default StatusFilter
