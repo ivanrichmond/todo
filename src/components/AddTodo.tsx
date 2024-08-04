@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import AppDate from '../designSystem/AppDate'
+import AppDate, { convertDate } from '../designSystem/AppDate'
 import AppForm from '../designSystem/AppForm'
 import AppTooltip from '../designSystem/AppTooltip'
 import { NoticeContext } from '../contexts/NoticeProvider'
@@ -40,7 +40,7 @@ const AddToDo = () => {
             // Error.
             createNotice(validation.error, 'error')
         } else {
-            addTodo(task, dueDate)
+            addTodo(task, convertDate(dueDate))
             // clear after adding
             setTask('')
             setDueDate('')
@@ -50,7 +50,7 @@ const AddToDo = () => {
     return(
         <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
-                <label htmlFor="New Task">New Task</label>
+                <label htmlFor="newTask" className='label'>New Task</label>
                 <AppTooltip
                 content = "Enter a new task."
                 inverted
@@ -58,17 +58,23 @@ const AddToDo = () => {
                 trigger = {
                     <AppForm.Input 
                     dataTestid = 'new-task'
+                    name = 'newTaks'
                     onChange = {(event) => setTask(event.target.value)}
                     placeholder='New Task' 
                     value = {task}
                     />
                 }
                 />
+
                 <AppDate 
+                className = 'dueDate'
                 label='Due Date' 
+                labelClass = 'label'
                 onChange = {setDueDate}
                 tooltip = {"Enter the due date for the task."}
+                value = {dueDate}
                 />
+
                 <AppTooltip
                 content = "Add task."
                 inverted

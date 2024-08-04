@@ -5,27 +5,27 @@
         "status": "complete"
     },
     {
-        "task": "Polish up the CSS",
+        "task": "Polish up the CSS.",
+        "dueDate": "08/05/2024",
+        "status": "complete"
+    },
+    {
+        "task": "Add light/dark mode.",
         "dueDate": "08/05/2024",
         "status": "incomplete"
     },
     {
-        "task": "Add light/dark mode",
+        "task": "Add keyboard shortcuts.",
         "dueDate": "08/05/2024",
         "status": "incomplete"
     },
     {
-        "task": "Add keyboard shortcuts",
+        "task": "Add advanced filtering.",
         "dueDate": "08/05/2024",
         "status": "incomplete"
     },
     {
-        "task": "Add advanced filtering",
-        "dueDate": "08/05/2024",
-        "status": "incomplete"
-    },
-    {
-        "task": "Document in Storybook",
+        "task": "Document in Storybook.",
         "dueDate": "08/05/2024",
         "status": "incomplete"
     }

@@ -47,7 +47,6 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
       >
         <input
           aria-describedby={null}
-          defaultValue=""
           name="Due Date"
           onBlur={[Function]}
           onChange={[Function]}
