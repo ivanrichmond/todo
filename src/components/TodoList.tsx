@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import AppButton from '../designSystem/AppButton'
 import AppCheckbox from '../designSystem/AppCheckbox'
 import AppTable from '../designSystem/AppTable'
+import AppTooltip from '../designSystem/AppTooltip'
 import DueDateFilter from './DueDateFilter'
 import StatusFilter from './StatusFilter'
 import TaskFilter from './TaskFilter'
@@ -28,7 +29,17 @@ const ToDoList = () => {
                 <AppTable.Cell className={todo.status}>{todo.task}</AppTable.Cell>
                 <AppTable.Cell className={todo.status}>{todo.dueDate}</AppTable.Cell>
                 <AppTable.Cell className={todo.status}>
-                    <AppButton color='red' icon='trash' onClick={() => deleteTodo(i)} />
+                    <AppTooltip
+                    content = "Delete this task."
+                    inverted
+                    trigger = {
+                        <AppButton
+                        color='red'
+                        icon='trash'
+                        onClick={() => deleteTodo(i)} 
+                        />
+                    }
+                    />
                 </AppTable.Cell>
             </AppTable.Row>
         )
@@ -36,7 +47,7 @@ const ToDoList = () => {
 
     return dataRows.length ? (
         <div className="TodoList">
-            <AppTable celled striped>
+            <AppTable celled striped compact>
                 <AppTable.Header>
                     <AppTable.Row verticalAlign = 'top'>
                         <AppTable.HeaderCell width={2}>
