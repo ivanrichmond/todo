@@ -1,12 +1,66 @@
 @app-header: #c00;
 
+.AddTodo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .App {
   padding: 1.5rem;
   text-align: center;
   .header {
+    border-bottom: 1px solid @app-header;
     color: @app-header;
     font-size: 24pt;
     line-height: normal;
+  }
+}
+
+.AppDate {
+  width: 12rem;
+}
+
+.Notice {
+  width: 100%;
+}
+
+.Search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  width: 100%;
+  legend {
+    color: #9b9b9e;
+    font-weight: bold;
+  }
+}
+
+.taskFilter {
+  display: flex;
+  flex-direction: column;
+}
+
+.TodoList {
+  margin-top: 0;
+  width: 100%;
+  .complete {
+      color: rgb(44, 102, 45);
+  }
+
+  .heading {
+    vertical-align: text-top;
+  }
+  
+  .noneFound {
+      font-size: 16pt;
+      font-weight: bold;
   }
 }
 
@@ -16,14 +70,4 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-
-}
-
-.complete {
-    color: rgb(44, 102, 45);
-}
-
-.noneFound {
-    font-size: 16pt;
-    font-weight: bold;
 }

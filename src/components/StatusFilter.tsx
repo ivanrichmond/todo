@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 
-import AppForm from '../designSystem/AppForm'
 import AppSelect from '../designSystem/AppSelect'
 import { TodoContext } from '../contexts/TodoProvider'
 
@@ -12,15 +11,14 @@ const Search = () => {
         {value: 'incomplete', text: 'incomplete'},
     ]
     return(
-        <AppForm >
-            <AppForm.Group inline >
-                <AppSelect 
-                label = 'status' 
-                filter = {setFilterStatus} 
-                options = {options}
-                />
-            </AppForm.Group>
-        </AppForm>
+        <AppSelect 
+        className = 'status'
+        label = 'Complete?' 
+        filter = {setFilterStatus} 
+        options = {options}
+        tooltip = "Show all, complete, or incomplete tasks."
+        tooltipPosition = 'right center'
+        />
     )
 }
 

@@ -1,11 +1,57 @@
+.AddTodo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
 .App {
   padding: 1.5rem;
   text-align: center;
 }
 .App .header {
+  border-bottom: 1px solid #c00;
   color: #c00;
   font-size: 24pt;
   line-height: normal;
+}
+.AppDate {
+  width: 12rem;
+}
+.Notice {
+  width: 100%;
+}
+.Search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  width: 100%;
+}
+.Search legend {
+  color: #9b9b9e;
+  font-weight: bold;
+}
+.taskFilter {
+  display: flex;
+  flex-direction: column;
+}
+.TodoList {
+  margin-top: 0;
+  width: 100%;
+}
+.TodoList .complete {
+  color: #2c662d;
+}
+.TodoList .heading {
+  vertical-align: text-top;
+}
+.TodoList .noneFound {
+  font-size: 16pt;
+  font-weight: bold;
 }
 .Todos {
   align-items: center;
@@ -13,12 +59,5 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-}
-.complete {
-  color: #2c662d;
-}
-.noneFound {
-  font-size: 16pt;
-  font-weight: bold;
 }
 /*# sourceMappingURL=App.css.map */

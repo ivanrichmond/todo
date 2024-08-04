@@ -1,9 +1,28 @@
 import React, { useContext, useState } from 'react'
 
+import AppDate from '../designSystem/AppDate'
 import AppForm from '../designSystem/AppForm'
+import AppTooltip from '../designSystem/AppTooltip'
 import { NoticeContext } from '../contexts/NoticeProvider'
 import { TodoContext } from '../contexts/TodoProvider'
 import { Task, DueDate } from '../classes/Todo'
+
+/**
+ * Validates the data the user is about to add.
+ * This function is abstracted from the component, in case it's useful to perform this validation
+ * in other situations.
+ */
+export const validateAddTodo = (task: Task, dueDate: DueDate) => {
+    type Validation = {isValid: boolean, error: string}
+    // Return value with Boolean and optional error message.
+    let validation: Validation = {isValid: true, error: ''}
+    if(task === ''){
+        validation = {isValid: false, error: 'You did not fill in the task.'}
+    } else if(dueDate === ''){
+        validation = {isValid: false, error: 'You did not fill in the due date.'}
+    }
+    return validation
+}
 
 const AddToDo = () => {
     // states
@@ -11,37 +30,58 @@ const AddToDo = () => {
     const [dueDate, setDueDate] = useState('')
 
     // contexts
-    //TODO: Fix this typescript error.
     const { createNotice } = useContext(NoticeContext)
     const { addTodo } = useContext(TodoContext)
 
     const handleAdd = (task: Task, dueDate: DueDate) => {
-        if(!task){
+        const validation = validateAddTodo(task, dueDate)
+        // Add, or error out.
+        if(!validation.isValid){
             // Error.
-            createNotice("You did not fill-in the task. ", 'error')
-        } else if(!dueDate){
-            // Error
-            createNotice("You did set a due date. ", 'error')
+            createNotice(validation.error, 'error')
         } else {
             addTodo(task, dueDate)
+            // clear after adding
+            setTask('')
+            setDueDate('')
         }
     }
 
     return(
-        <AppForm >
+        <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
-                <AppForm.Input 
-                label='New Task' 
-                placeholder='New Task' 
-                onChange = {(event) => setTask(event.target.value)}
+                <label htmlFor="New Task">New Task</label>
+                <AppTooltip
+                content = "Enter a new task."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <AppForm.Input 
+                    dataTestid = 'new-task'
+                    onChange = {(event) => setTask(event.target.value)}
+                    placeholder='New Task' 
+                    value = {task}
+                    />
+                }
                 />
-                <AppForm.Input 
+                <AppDate 
                 label='Due Date' 
-                placeholder='Due Date' 
-                type='date' 
-                onChange = {(event) => setDueDate(event.target.value)}
+                onChange = {setDueDate}
+                tooltip = {"Enter the due date for the task."}
                 />
-                <AppForm.Button icon='plus' onClick = {() => handleAdd(task, dueDate)}/>
+                <AppTooltip
+                content = "Add task."
+                inverted
+                position = 'bottom center'
+                trigger = {
+                    <AppForm.Button 
+                    color='blue' 
+                    dataTestid = 'add-button'
+                    icon='plus' 
+                    onClick = {() => handleAdd(task, dueDate)}
+                    />
+                }
+                />
             </AppForm.Group>
         </AppForm>
     )
