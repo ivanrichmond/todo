@@ -55,7 +55,7 @@ const AddToDo = () => {
     return(
         <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
-                <label htmlFor="newTask" style={{width: "6rem"}}>New Task</label>
+                <label htmlFor="newTask" className='label'>New Task</label>
                 <AppTooltip
                 content = "Enter a new task."
                 inverted
@@ -70,9 +70,9 @@ const AddToDo = () => {
                     />
                 }
                 />
-                <label htmlFor="dueDate" style={{width: "6rem"}}>Due Date</label>
+                <label htmlFor="dueDate" className='label'>Due Date</label>
                 <input 
-                style = {{marginRight: "1rem", width: "12rem"}}
+                className = 'dueDate'
                 name = 'dueDate'
                 onChange = {(event) => setDueDate(event.target.value)}
                 type="date" 
