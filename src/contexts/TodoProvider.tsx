@@ -24,6 +24,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
     const [todos, setTodos] = useState(initialData)
     const [filterStatus, setFilterStatus] = useState('all')
     const [filterTask, setFilterTask] = useState('')
+    const [filterDueDate, setFilterDueDate] = useState('')
     
     // In the following methods, todos must be changed statelessly by making a copy and setting that.
 
@@ -56,8 +57,10 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         toggleComplete, 
         filterStatus, 
         filterTask, 
+        filterDueDate, 
         setFilterStatus,
-        setFilterTask
+        setFilterTask,
+        setFilterDueDate,
     }
     return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };

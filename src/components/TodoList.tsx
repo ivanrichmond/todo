@@ -4,6 +4,7 @@ import AppButton from '../designSystem/AppButton'
 import AppCheckbox from '../designSystem/AppCheckbox'
 import AppTable from '../designSystem/AppTable'
 import AppTooltip from '../designSystem/AppTooltip'
+import { convertDate } from '../designSystem/AppDate'
 import DueDateFilter from './DueDateFilter'
 import StatusFilter from './StatusFilter'
 import TaskFilter from './TaskFilter'
@@ -11,7 +12,7 @@ import { TodoContext } from '../contexts/TodoProvider'
 import { TodoType } from '../classes/Todo'
 
 const ToDoList = () => {
-    let { todos, deleteTodo, filterStatus, filterTask, toggleComplete } = useContext(TodoContext)
+    let { todos, deleteTodo, filterDueDate, filterStatus, filterTask, toggleComplete } = useContext(TodoContext)
     if(filterStatus !== 'all'){
         //TODO: Have something better than any for type of todo.
         // @ts-expect-error
@@ -21,6 +22,11 @@ const ToDoList = () => {
         //TODO: Have something better than any for type of todo.
         // @ts-expect-error
         todos = todos.filter(todo => todo.task.includes(filterTask))
+    }
+    if(filterDueDate !== ''){
+        //TODO: Have something better than any for type of todo.
+        // @ts-expect-error
+        todos = todos.filter(todo => todo.dueDate === convertDate(filterDueDate))
     }
     
     let dataRows = todos.map((todo: TodoType, i:number) => {
