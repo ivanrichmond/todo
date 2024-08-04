@@ -17,6 +17,7 @@ const Search = () => {
         filter = {setFilterStatus} 
         options = {options}
         tooltip = "Show all, complete, or incomplete tasks."
+        tooltipPosition = 'right center'
         />
     )
 }
