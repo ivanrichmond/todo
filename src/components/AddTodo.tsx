@@ -40,7 +40,12 @@ const AddToDo = () => {
             // Error.
             createNotice(validation.error, 'error')
         } else {
-            addTodo(task, dueDate)
+            let formattedDueDate = dueDate
+            let matches = dueDate.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
+            if(matches){
+                formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
+            }
+            addTodo(task, formattedDueDate)
             // clear after adding
             setTask('')
             setDueDate('')
@@ -50,7 +55,7 @@ const AddToDo = () => {
     return(
         <AppForm className = 'AddTodo'>
             <AppForm.Group inline>
-                <label htmlFor="New Task">New Task</label>
+                <label htmlFor="newTask" style={{width: "6rem"}}>New Task</label>
                 <AppTooltip
                 content = "Enter a new task."
                 inverted
@@ -58,17 +63,26 @@ const AddToDo = () => {
                 trigger = {
                     <AppForm.Input 
                     dataTestid = 'new-task'
+                    name = 'newTaks'
                     onChange = {(event) => setTask(event.target.value)}
                     placeholder='New Task' 
                     value = {task}
                     />
                 }
                 />
-                <AppDate 
+                <label htmlFor="dueDate" style={{width: "6rem"}}>Due Date</label>
+                <input 
+                style = {{marginRight: "1rem", width: "12rem"}}
+                name = 'dueDate'
+                onChange = {(event) => setDueDate(event.target.value)}
+                type="date" 
+                value = {dueDate}
+                />
+                {/* <AppDate 
                 label='Due Date' 
                 onChange = {setDueDate}
                 tooltip = {"Enter the due date for the task."}
-                />
+                /> */}
                 <AppTooltip
                 content = "Add task."
                 inverted
