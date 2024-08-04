@@ -1,7 +1,7 @@
 import AppTooltip from './AppTooltip'
 export type AppSelectProps = {
     className?: string, 
-    label: string, 
+    label?: string, 
     filter: (value: string) => {}, 
     options: { value: string; text: string; }[],
     tooltip?: string
