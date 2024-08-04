@@ -2,7 +2,7 @@ import AppTooltip from './AppTooltip'
 export type AppSelectProps = {
     className?: string, 
     label?: string, 
-    filter: (value: string) => {}, 
+    filter?: (value: string) => {}, 
     options: { value: string; text: string; }[],
     tooltip?: string
 }
@@ -10,6 +10,12 @@ export default function AppSelect({className, label, filter, options, tooltip}: 
     const optionData = options.map((option,i) => {
         return <option key={i} value={option.value}>{option.text}</option>
     })
+
+    // Wraps filter to allow it to be an optional prop.
+    const filterWrapper = (selection: string) => {
+        if(!filter) return
+        filter(selection)
+    }
     
     return (
         <div className = {'ui form field'}>
@@ -25,7 +31,7 @@ export default function AppSelect({className, label, filter, options, tooltip}: 
                 //.ui.form .field > .selection.dropdown
                 className = {`${className} selection dropdown`}
                 name = {label}
-                onChange = {e => filter(e.target.value)}
+                onChange = {e => filterWrapper(e.target.value)}
                 >
                     {optionData}
                 </select>
