@@ -9,7 +9,8 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
     className="inline fields"
   >
     <label
-      htmlFor="New Task"
+      className="label"
+      htmlFor="newTask"
     >
       New Task
     </label>
@@ -22,6 +23,7 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
       >
         <input
           aria-describedby={null}
+          name="newTaks"
           onBlur={[Function]}
           onChange={[Function]}
           onClick={[Function]}
@@ -35,30 +37,23 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
       </div>
     </div>
     <label
+      className="label"
       htmlFor="Due Date"
     >
       Due Date
     </label>
-    <div
-      className="field AppDate"
-    >
-      <div
-        className="ui input"
-      >
-        <input
-          aria-describedby={null}
-          name="Due Date"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          placeholder="Due Date"
-          type="date"
-        />
-      </div>
-    </div>
+    <input
+      className="dueDate"
+      name="Due Date"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      type="date"
+      value=""
+    />
     <div
       className="field"
     >
