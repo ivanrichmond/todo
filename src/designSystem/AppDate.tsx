@@ -11,19 +11,23 @@ export type AppDateProps = {
 }
 
 /**
+ * On some browsers, the value stored in an input date ends up being in YYYY-MM-DD format, 
+ * once it's used outside of the input.  This function sets it to the American MM/DD/YYYY format,
+ * if it does that, or passes value through otherwise.
+ */
+export const convertDate = (value: string) => {
+    let formattedDueDate = value
+    let matches = value.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
+    if(matches){
+        formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
+    }
+    return formattedDueDate
+}
+
+/**
  * A custom date picker that puts things in MM/DD/YYYY format.
  */
 const AppDate = ({className, label, labelClass, onChange, tooltip, tooltipPosition, value}: AppDateProps) => { 
-    // Convert DueDate to MM/DD/YYYY
-    const convertDate = (value: string) => {
-        let formattedDueDate = value
-        let matches = value.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
-        if(matches){
-            formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
-        }
-        return formattedDueDate
-    }
-
     return (
         <>
             <label htmlFor={label} className={labelClass}>Due Date</label>

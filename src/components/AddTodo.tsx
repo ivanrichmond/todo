@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import AppDate from '../designSystem/AppDate'
+import AppDate, { convertDate } from '../designSystem/AppDate'
 import AppForm from '../designSystem/AppForm'
 import AppTooltip from '../designSystem/AppTooltip'
 import { NoticeContext } from '../contexts/NoticeProvider'
@@ -40,12 +40,7 @@ const AddToDo = () => {
             // Error.
             createNotice(validation.error, 'error')
         } else {
-            let formattedDueDate = dueDate
-            let matches = dueDate.match(/(\d\d\d\d)-(\d\d)-(\d\d)/) // gets YYYY, MM, and DD out of it
-            if(matches){
-                formattedDueDate = `${matches[2]}/${matches[3]}/${matches[1]}` // puts it back together.
-            }
-            addTodo(task, formattedDueDate)
+            addTodo(task, convertDate(dueDate))
             // clear after adding
             setTask('')
             setDueDate('')
@@ -70,21 +65,6 @@ const AddToDo = () => {
                     />
                 }
                 />
-
-                {/* <label htmlFor="dueDate" className='label'>Due Date</label>
-                <AppTooltip
-                content = "Enter a due date."
-                inverted
-                position = 'bottom center'
-                trigger = {
-                    <input 
-                    className = 'dueDate'
-                    name = 'dueDate'
-                    onChange = {(event) => setDueDate(event.target.value)}
-                    type="date" 
-                    value = {dueDate}
-                    />
-                }/> */}
 
                 <AppDate 
                 className = 'dueDate'
