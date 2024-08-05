@@ -57,8 +57,8 @@ const AddToDo = () => {
                 position = 'bottom center'
                 trigger = {
                     <AppForm.Input 
-                    dataTestid = 'new-task'
-                    name = 'newTaks'
+                    data-testid = 'new-task'
+                    name = 'newTask'
                     onChange = {(event) => setTask(event.target.value)}
                     placeholder='New Task' 
                     value = {task}
@@ -68,6 +68,7 @@ const AddToDo = () => {
 
                 <AppDate 
                 className = 'dueDate'
+                name = 'due-date'
                 label='Due Date' 
                 labelClass = 'label'
                 onChange = {setDueDate}
@@ -82,7 +83,7 @@ const AddToDo = () => {
                 trigger = {
                     <AppForm.Button 
                     color='blue' 
-                    dataTestid = 'add-button'
+                    data-testid = 'add-button'
                     icon='plus' 
                     onClick = {() => handleAdd(task, dueDate)}
                     />

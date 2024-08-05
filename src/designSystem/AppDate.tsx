@@ -4,6 +4,7 @@ export type AppDateProps = {
     className?: string;
     label?: string;
     labelClass?: string;
+    name?: string;
     onChange: (value: string) => void;
     tooltip?: string;
     tooltipPosition?: "right center" | "top left" | "top right" | "bottom right" | "bottom left" | "left center" | "top center" | "bottom center"
@@ -27,10 +28,10 @@ export const convertDate = (value: string) => {
 /**
  * A custom date picker that puts things in MM/DD/YYYY format.
  */
-const AppDate = ({className, label, labelClass, onChange, tooltip, tooltipPosition, value}: AppDateProps) => { 
+const AppDate = ({className, label, labelClass, name, onChange, tooltip, tooltipPosition, value}: AppDateProps) => { 
     return (
         <>
-            <label htmlFor={label} className={labelClass}>Due Date</label>
+            <label htmlFor={name} className={labelClass}>Due Date</label>
             <AppTooltip
             content = {tooltip}
             inverted
@@ -38,7 +39,8 @@ const AppDate = ({className, label, labelClass, onChange, tooltip, tooltipPositi
             trigger = {
                 <input 
                 className = {className}
-                name = {label}
+                data-testid = {name}
+                name = {name}
                 onChange = {(event) => onChange(event.target.value)}
                 type="date" 
                 value = {value}
