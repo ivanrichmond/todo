@@ -130,7 +130,7 @@ This component is based around HTML `<select>` and provides a dropdown to select
 
 `label`: the label for the Select
 
-`filter`: OPTIONAL Provide a filtering function for the `onChange` event
+`filter`: OPTIONAL function for `onChange` event, useful for whatever purpose the parent has for selection.
 
 `options`: an array of items to select.
 

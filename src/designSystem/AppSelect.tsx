@@ -2,7 +2,7 @@ import AppTooltip from './AppTooltip'
 export type AppSelectProps = {
     className?: string, 
     label?: string, 
-    filter?: (value: string) => {}, 
+    filter?: (value: string) => {}, /* A generic name for a function that gets called when something is selected.  */
     options: { value: string; text: string; }[],
     tooltip?: string,
     tooltipPosition?: "right center" | "top left" | "top right" | "bottom right" | "bottom left" | "left center" | "top center" | "bottom center"
