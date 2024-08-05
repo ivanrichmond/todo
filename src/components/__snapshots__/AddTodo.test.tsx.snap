@@ -19,11 +19,11 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
     >
       <div
         className="ui input"
-        dataTestid="new-task"
+        data-testid="new-task"
       >
         <input
           aria-describedby={null}
-          name="newTaks"
+          name="newTask"
           onBlur={[Function]}
           onChange={[Function]}
           onClick={[Function]}
@@ -38,13 +38,14 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
     </div>
     <label
       className="label"
-      htmlFor="Due Date"
+      htmlFor="due-date"
     >
       Due Date
     </label>
     <input
       className="dueDate"
-      name="Due Date"
+      data-testid="due-date"
+      name="due-date"
       onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
@@ -60,7 +61,7 @@ exports[`AddTodo AddTodo initial render snapshot 1`] = `
       <button
         aria-describedby={null}
         className="ui blue icon button"
-        dataTestid="add-button"
+        data-testid="add-button"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
