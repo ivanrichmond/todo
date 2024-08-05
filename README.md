@@ -19,6 +19,8 @@ cd todo
 yarn
 ```
 
+**NOTE:** If you want to use `npm`, you can, but because I used `yarn` for the project, `npm` may throw errors.  If it does, you may need to use `npm install --force`.
+
 4. Start the React server.
 
 ```
@@ -111,20 +113,29 @@ When using `<input type='date'>` or SUI's version, which is ultimately the same 
 
 #### Props
 
-`label?`: OPTIONAL a label for the date picker
+`label`: OPTIONAL a label for the date picker
+
 `onChange`: a function that does something when the date is changed
-`tooltip?`: OPTIONAL a tooltip string to be displayed on hover
-`tooltipPosition?`: OPTIONAL the position of the tooltip as: `right center` | `top left` | `top right` | `bottom right` | `bottom left` | `left center` | `top center` | `bottom center` (default)
+
+`tooltip`: OPTIONAL a tooltip string to be displayed on hover
+
+`tooltipPosition`: OPTIONAL the position of the tooltip as: `right center` | `top left` | `top right` | `bottom right` | `bottom left` | `left center` | `top center` | `bottom center` (default)
+
 ### AppSelect
 
 This component is based around HTML `<select>` and provides a dropdown to select something.  Although SUI has a `Dropdown` component, I preferred to make my own.  To make it blend in with the SUI look and feel, I used SUI CSS classes.  `AppSelect` is intended to be used with a `filter` function.  It has the tooltip optionally as part of it, so that you don't have to wrap it in `AppTooltip`.
 #### Props
 
 `className`: OPTIONAL Provide an additional CSS class
+
 `label`: the label for the Select
+
 `filter`: OPTIONAL Provide a filtering function for the `onChange` event
+
 `options`: an array of items to select.
+
 `tooltip`: OPTIONAL text for a tooltip
+
 `tooltipPosition`: OPTIONAL direction for the tooltip as: 
     `right center` | `top left` | `top right` | `bottom right` | `bottom left` | `left center` | `top center` | `bottom center` (default)
 
