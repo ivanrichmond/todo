@@ -170,4 +170,4 @@ Keeps track of most of the data of the to do list, leveraging the `Todo` class.
 `filterStatus`: the filter for `Todo.status`, which can be used by callng components, such as `TodoList`, to filter `todos`.
 `setFilterStatus()`: a setter function to set `filterStatus`.
 
-
+Enjoy!
